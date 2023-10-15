@@ -3,16 +3,18 @@
 #include <stdarg.h>
 
 /**
- * print_char - prints chars
- * @character: integer
+ * print_char - prints character from the %c specifier
+ * @args : args
+ * @count: count
  *
  * Return: integer
  */
 
-int print_char (int character)
+void print_char(va_list args, int *count)
 {
-	_putchar(character);
-	return (1);
+	char c = (char)va_arg(args, int);
+
+	*count += _putchar(c);
 }
 
 /**

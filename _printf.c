@@ -23,7 +23,6 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	if (format == NULL)
 	{
-		va_end(args);
 		return (-1);
 	}
 	while (*format != '\0')
