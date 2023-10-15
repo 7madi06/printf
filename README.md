@@ -151,3 +151,7 @@ alex@ubuntu:~/c/printf$
 -   Any form of plagiarism is strictly forbidden and will result in removal from the program.
 
 ### Printf project Authors:
+
+-   [Youssef Saddouki](https://github.com/7madi06 "Youssef Saddouki")
+
+-   [Ilyas Alla](https://github.com/dxrk09 "Ilyas Alla")
