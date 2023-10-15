@@ -13,7 +13,40 @@
  * (excluding the null byte used to end output to strings)
  */
 
+
 int _printf(const char *format, ...)
 {
+	int count = 0;
+	va_list args;
 
+	va_start(args, format);
+	while (*format != '\0')
+	{
+		if (*format == '%')
+		{
+			format++;
+			switch (*format)
+			{
+				case 'c':
+					char c = (char)va_arg(args, int);
+
+					count += print_char(c);
+					break;
+				case 's':
+					print_string(args, &count);
+					break;
+				case '%':
+					count += p_print();
+					break;
+				default:
+					count += print_char('%') + print_char(*format);
+					break;
+			}
+		} else
+			count += print_char(*format);
+
+		format++;
+	}
+	va_end(args);
+	return (count);
 }
