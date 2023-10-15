@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "main.C": "cpp",
-        "unistd.h": "c",
-        "stdarg.h": "c"
-    }
-}
