@@ -31,21 +31,22 @@ int _printf(const char *format, ...)
 				case 'c':
 					c = (char)va_arg(args, int);
 
-					count += print_char(c);
+					count += _putchar(c);
 					break;
 				case 's':
 					print_string(args, &count);
 					break;
 				case '%':
-					count += p_print();
+					count += _putchar('%');
 					break;
 				default:
-					count += print_char('%') + print_char(*format);
+					count += _putchar('%') + _putchar(*format);
 					break;
 			}
 		} else
-			count += print_char(*format);
-
+		{
+			count += _putchar(*format);
+		}
 		format++;
 	}
 	va_end(args);
