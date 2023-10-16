@@ -15,7 +15,8 @@
 
 int _printf(char *format, ...)
 {
-	unsigned int i = 0, count = 0, *p_i = &i;
+	unsigned int i = 0, count = 0;
+	unsigned int *p_i = &i;
 	va_list args;
 
 	va_start(args, format);
@@ -44,9 +45,12 @@ int _printf(char *format, ...)
 			default:
 				count += handle_specifiers(args, format[i + 1], p_i);
 			}
-		} else
+		}
+		else
+		{
 			_putchar(format[i]);
 			count++;
+		}
 	}
 	va_end(args);
 	return ((int) count);
