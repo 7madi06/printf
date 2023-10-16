@@ -45,10 +45,8 @@ int _printf(char *format, ...)
 				count += handle_specifiers(args, format[i + 1], p_i);
 			}
 		} else
-		{
 			_putchar(format[i]);
 			count++;
-		}
 	}
 	va_end(args);
 	return ((int) count);
