@@ -3,40 +3,35 @@
 #include <stdarg.h>
 
 /**
- * print_char - prints character from the %c specifier
- * @args : args
- * @count: count
+ * print_char - prints chars
+ * @character: integer
  *
  * Return: integer
  */
-
-void print_char(va_list args, int *count)
+int print_char(int character)
 {
-	char c = (char)va_arg(args, int);
-
-	*count += _putchar(c);
+	_putchar((char) character);
+	return (1);
 }
 
 /**
-* print_string - prints a string.
-* @args : args
-* @count : int
-*/
-
-void print_string(va_list args, int *count)
+ * print_string - prints strings
+ * @str: string
+ *
+ * Return: integer
+ */
+int print_string(char *str)
 {
-	char *str = va_arg(args, char *);
+	int i = 0;
+	int count = 0;
 
-	if (str == NULL)
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		str = "(null)";
+		_putchar(str[i]);
+		count++;
 	}
-	_puts(str);
-	while (*str != '\0')
-	{
-		(*count)++;
-		str++;
-	}
+
+	return (count);
 }
 
 /**
@@ -48,4 +43,50 @@ int p_print(void)
 {
 	_putchar('%');
 	return (1);
+}
+
+/**
+ * id_print - prints %i and %d
+ * @n: the integer to print
+ *
+ *
+ * Return: integer
+ */
+void id_print(int n)
+{
+	unsigned int m;
+
+	if (n < 0)
+	{
+		_putchar('-');
+		m = -n;
+	}
+	else
+		m = n;
+	if (m / 10)
+	{
+		id_print(m / 10);
+	}
+	_putchar(m % 10 + '0');
+}
+
+/**
+ * int_len - counts num len of int
+ * @n: the integer to print
+ *
+ *
+ * Return: integer
+ */
+int int_len(int n)
+{
+	int count = 0;
+
+	if (n <= 0)
+		count++;
+	while (n != 0)
+	{
+		n = n / 10;
+		count++;
+	}
+	return (count);
 }
